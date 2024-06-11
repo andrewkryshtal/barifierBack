@@ -8,8 +8,14 @@ import { friendRouter } from "./src/routers/friendApi";
 import { socketInstance } from "./src/socket";
 import cors from "cors";
 import { redisEnabler } from "./src/redis";
+import dotenv from "dotenv";
 
 export const app = express();
+
+const { parsed } = dotenv.config();
+
+const port = parsed.PORT || 3333;
+
 app.use(cors());
 
 app.use(bodyParser.json());
@@ -35,8 +41,8 @@ app.use("/user", userRouter);
 
 app.use("/weather", weatherRouter);
 
-app.listen(3000, () => {
-  console.log("Example app listening on port 3000");
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 
 redisEnabler();
