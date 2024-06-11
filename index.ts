@@ -7,8 +7,7 @@ import { weatherRouter } from "./src/routers/weatherApi";
 import { friendRouter } from "./src/routers/friendApi";
 import { socketInstance } from "./src/socket";
 import cors from "cors";
-import { redisEnabler } from "./src/redis";
-import dotenv from "dotenv";
+// import { redisEnabler } from "./src/redis";
 
 export const app = express();
 
@@ -43,7 +42,7 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-redisEnabler();
+// redisEnabler();
 
 socketInstance();
 
