@@ -12,11 +12,7 @@ import dotenv from "dotenv";
 
 export const app = express();
 
-const { parsed } = dotenv.config();
-
-console.log({ parsed, env: process.env });
-
-const port = parsed.PORT || 3333;
+const port = process.env.PORT || 3333;
 
 app.use(cors());
 
