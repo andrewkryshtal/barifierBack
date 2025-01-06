@@ -9,12 +9,10 @@ export interface IuserMediaObject {
 }
 
 type UserSchemaType = {
-  access_token?: string;
-  userId: number;
-  isAdmin?: boolean;
+  email: string;
+  password: string;
   username?: string;
-  user_media?: IuserMediaObject[];
-  fileName: string;
+  isAdmin?: boolean;
   showCheckIns?: boolean;
   showFavourites?: boolean;
   hideMyselfOnMap?: boolean;
@@ -22,13 +20,10 @@ type UserSchemaType = {
   birthDate?: Date | undefined;
 };
 
-export const userSchema = new mongoose.Schema<UserSchemaType>({
-  access_token: String,
-  userId: Number,
+const userSchema = new mongoose.Schema<UserSchemaType>({
+  email: String,
+  password: String,
   isAdmin: Boolean,
-  username: String,
-  user_media: Array<IuserMediaObject[]>,
-  fileName: String,
   showCheckIns: Boolean,
   showFavourites: Boolean,
   hideMyselfOnMap: Boolean,

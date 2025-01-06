@@ -2,11 +2,14 @@ import express from "express";
 import { connectDb } from "./src/db/connect";
 import bodyParser from "body-parser";
 import { barRouter } from "./src/routers/barApi";
-import { userRouter } from "./src/routers/userApi";
+import { userRouter } from "./src/routers/user/userApi";
 import { weatherRouter } from "./src/routers/weatherApi";
 import { friendRouter } from "./src/routers/friendApi";
 import { socketInstance } from "./src/socket";
 import cors from "cors";
+// env implementing
+import "dotenv/config";
+
 // import { redisEnabler } from "./src/redis";
 
 export const app = express();
@@ -15,7 +18,7 @@ const port = process.env.PORT || 3333;
 
 app.use(cors());
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(
   bodyParser.urlencoded({
     extended: true,
